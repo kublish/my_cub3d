@@ -69,6 +69,12 @@ typedef struct	s_data
 	t_map		map;
 }				t_data;
 
+typedef struct  s_ray_data
+{
+    t_double    rel_pos;
+    int         is_NS;
+}               t_ray_data;
+
 void			launch(t_data *data);
 void			render_screen(t_data *data);
 
@@ -94,4 +100,6 @@ int				read_map(char *line, int fd, t_data *data);
 //tools.c
 
 int				is_player(const char a);
-#endif
+void            perp_vec(t_dpoint *vec, double ratio, t_dpoint re_vec);
+int             ray_cast(t_dpoint *ray, t_data *d, t_dpoint *hit, int *is_NS);
+)#endif

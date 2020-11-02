@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.c                                            :+:      :+:    :+:   */
+/*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,34 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
+#include "cub3d.h"
 
-int     is_player(const char a)
+void rotate_cam(double rad, t_data *d)
 {
-	return  (a == 'N' || a == 'S' || a == 'E' || a == 'W');
-}
+    double oldx;
+    double oldy;
 
-/*
-**  perp_distance provides the point perpendicular to the end of vec, at
-**  distance relative to size of vec. positive ratio is to the right.
-*/
-
-void    perp_vec(t_dpoint *vec, double ratio, t_dpoint *re_vec)
-{
-    re_vec->x = vec->y * ratio + vec->x;
-    re_vec->y = -vec->x * ratio + vec->y;
-}
-
-void    ray_cast_init(t_data *d, t_dpoint *ray, t_ray_data *)
-{
-    map_pos->x = (int)d->cam.player.x;
-    map_pos->y = (int)d->cam.player.y;
-    if (ray)
-}
-
-int     ray_cast(t_dpoint *ray_dir, t_data *d, t_dpoint *hit, int *is_NS)
-{
-
-    int     hit_found;
-
-    ft_memcpy(hit, )
+    oldx = d->cam.dir.x;
+    oldy = d->cam.dir.y;
+    d->cam.dir.x = x * cos(rad) - y * sin(rad);
+    d->cam.dir.y = x * sin(rad) + y * cos(rad);
 }
