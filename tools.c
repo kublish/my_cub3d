@@ -6,10 +6,11 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 20:16:49 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/10/30 20:33:41 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/02 22:35:06 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cub3d.h"
 
 int     is_player(const char a)
 {
@@ -21,23 +22,18 @@ int     is_player(const char a)
 **  distance relative to size of vec. positive ratio is to the right.
 */
 
-void    perp_vec(t_dpoint *vec, double ratio, t_dpoint *re_vec)
+void    ray_cast_init(t_data *d, double )
 {
-    re_vec->x = vec->y * ratio + vec->x;
-    re_vec->y = -vec->x * ratio + vec->y;
+	d->ray.dir.x = d->cam.dir.y 
+    d->ray.hit.x = (int)d->cam.player.x;
+    d->ray.hit.y = (int)d->cam.player.y;
+    d->ray.inc.y = (d->ray.dir.y < 0 ? -1 : 1);
+    d->ray.inc.x = (d->ray.dir.x < 0 ? -1 : 1);
 }
 
-void    ray_cast_init(t_data *d, t_dpoint *ray, t_ray_data *)
-{
-    map_pos->x = (int)d->cam.player.x;
-    map_pos->y = (int)d->cam.player.y;
-    if (ray)
-}
-
-int     ray_cast(t_dpoint *ray_dir, t_data *d, t_dpoint *hit, int *is_NS)
+int     ray_cast(t_data *d, t_ray_data *r, double percentage;)
 {
 
     int     hit_found;
-
-    ft_memcpy(hit, )
+    //ft_memcpy(hit, )
 }

@@ -6,13 +6,13 @@
 #    By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/07 18:56:37 by zacharyku         #+#    #+#              #
-#    Updated: 2020/10/31 17:18:36 by zacharyku        ###   ########.fr        #
+#    Updated: 2020/11/02 13:48:23 by zacharyku        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LIBS = -lmlx libft/libft.a
 FLAGS = -fsanitize=address #-Wall -Wextra -Werror
-OBJS = main.o launch.o render.o input.o getters.o hooks.o map_reader.o tools.o
+OBJS = main.o launch.o render.o input.o getters.o hooks.o map_reader.o tools.o movement.o
 NAME = cub3d
 
 all: $(NAME)

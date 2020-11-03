@@ -6,7 +6,7 @@
 /*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 02:02:04 by zkubli            #+#    #+#             */
-/*   Updated: 2020/11/01 13:42:30 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/02 22:35:44 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,16 @@ typedef struct	s_cam
 	double		plane;	
 }				t_cam;
 
+typedef struct  s_ray_data
+{
+	t_dpoint	dir.
+    t_point		hit;
+	t_point		inc;
+	t_dpoint	sideDist;
+	t_dpoint	deltaDist
+    int         is_NS;
+}               t_ray_data;
+
 typedef struct	s_data
 {
 	void 		*mlx_ptr;
@@ -65,15 +75,10 @@ typedef struct	s_data
 	int			ceil_color;
 	t_point		res;
 	t_cam		cam;
+	t_ray_data	ray;
 	char		*error_data;
 	t_map		map;
 }				t_data;
-
-typedef struct  s_ray_data
-{
-    t_double    rel_pos;
-    int         is_NS;
-}               t_ray_data;
 
 void			launch(t_data *data);
 void			render_screen(t_data *data);
@@ -100,6 +105,5 @@ int				read_map(char *line, int fd, t_data *data);
 //tools.c
 
 int				is_player(const char a);
-void            perp_vec(t_dpoint *vec, double ratio, t_dpoint re_vec);
-int             ray_cast(t_dpoint *ray, t_data *d, t_dpoint *hit, int *is_NS);
-)#endif
+int             ray_cast(t_data *d, t_dpoint *hit, int *is_NS);
+#endif

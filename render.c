@@ -6,20 +6,20 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 11:58:56 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/10/31 17:20:31 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/02 22:35:09 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
 #include "cub3d.h"
 
-void render_line(t_dpoint *ray_dir, t_data *data, x)
+void render_line(t_dpoint *raydir, t_data *data, int x)
 {
 	int         y;
 	int         is_NS;
 	t_dpoint    hit;
 
-	ray_cast(ray_dir, &hit, &is_NS);
+	ray_cast(raydir, data, &hit, &is_NS);
 	y = 0;
 	while (y < data->res.y)
 	{
@@ -29,15 +29,14 @@ void render_line(t_dpoint *ray_dir, t_data *data, x)
 
 void render_screen(t_data *d)
 {
-	int i;
-	double      planeStart;
-	t_dpoint    ray_dir;
+	int			i;
+	double		planeStart;
 
 	planeStart = d->cam.plane * -.5;
 	i = 0;
 	while (i < d->res.x)
     {
         perp_vec(&d->cam.dir, (i + 1.0) / d->res.x * d->cam.plane, &raydir);
-        render_line(&ray_dir, data, i);
+        render_line(&raydir, d, i);
     }
 }
