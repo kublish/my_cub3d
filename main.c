@@ -63,9 +63,8 @@ void clear_data(t_data *d)
 		mlx_destroy_window(d->mlx_ptr, d->win);
 	free(d->error_data);
 	free(d->map.table);
+	mlx_destroy_dispaly(d->mlx_ptr);
 	system("leaks cub3d");
-	//check here for leaks
-	free(d->mlx_ptr);
 }
 
 int main(void)

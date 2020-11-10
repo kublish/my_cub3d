@@ -54,11 +54,11 @@ typedef struct	s_cam
 
 typedef struct  s_ray_data
 {
-	t_dpoint	dir.
-    t_point		hit;
+	t_dpoint	dir;
+	t_point		hit;
 	t_point		inc;
 	t_dpoint	sideDist;
-	t_dpoint	deltaDist
+	t_dpoint	deltaDist;
     int         is_NS;
 }               t_ray_data;
 

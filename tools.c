@@ -22,16 +22,16 @@ int     is_player(const char a)
 **  distance relative to size of vec. positive ratio is to the right.
 */
 
-void    ray_cast_init(t_data *d, double )
+void    ray_cast_init(t_data *d, double percentge)
 {
-	d->ray.dir.x = d->cam.dir.y 
+	d->ray.dir.x = d->cam.dir.y; 
     d->ray.hit.x = (int)d->cam.player.x;
     d->ray.hit.y = (int)d->cam.player.y;
     d->ray.inc.y = (d->ray.dir.y < 0 ? -1 : 1);
     d->ray.inc.x = (d->ray.dir.x < 0 ? -1 : 1);
 }
 
-int     ray_cast(t_data *d, t_ray_data *r, double percentage;)
+int     ray_cast(t_data *d, )
 {
 
     int     hit_found;
