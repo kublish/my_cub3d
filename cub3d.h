@@ -6,7 +6,7 @@
 /*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 02:02:04 by zkubli            #+#    #+#             */
-/*   Updated: 2020/11/02 22:35:44 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/03 05:47:22 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ typedef struct	s_cam
 
 typedef struct  s_ray_data
 {
-	t_dpoint	dir.
+	t_dpoint	dir;
     t_point		hit;
 	t_point		inc;
 	t_dpoint	sideDist;
-	t_dpoint	deltaDist
+	t_dpoint	deltaDist;
     int         is_NS;
 }               t_ray_data;
 
