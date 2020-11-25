@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "cub3d.h"
+#include <mlx.h>
 
 void	launch(t_data *data)
 {
