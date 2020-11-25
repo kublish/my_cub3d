@@ -6,12 +6,13 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/27 14:05:28 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/11/25 15:56:13 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/25 15:59:25 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "cub3d.h"
+#include <mlx.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
