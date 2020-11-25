@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/27 14:05:28 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/11/25 16:00:41 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/25 16:03:40 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int get_resolution(char *line, t_point *to_fill)
 	return (3 * (line[i] != '\0'));
 }
 
-int	get_texture(char *line, t_data *data, t_img *img)
+int	get_texture(char *line, t_data *data, t_my_img *img)
 {
 	while (ft_isspace(*line))
 		line++;
