@@ -6,7 +6,7 @@
 /*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 02:02:04 by zkubli            #+#    #+#             */
-/*   Updated: 2020/11/25 16:02:20 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/25 16:24:20 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct	s_dpoint
 	double		y;
 }				t_dpoint;
 
-typedef struct	s_my_img
+typedef struct	s_img
 {
 	int			width;
 	int			height;
@@ -39,7 +39,7 @@ typedef struct	s_my_img
 	int			endian;
 	void		*ptr;
 	void		*adr;
-}				t_my_img;
+}				t_img;
 
 typedef struct	s_map
 {
@@ -70,11 +70,11 @@ typedef struct	s_data
 {
 	void 		*mlx_ptr;
 	void		*win;
-	t_my_img	no_tex;
-	t_my_img	so_tex;
-	t_my_img	ea_tex;
-	t_my_img	we_tex;
-	t_my_img	spr_tex;
+	t_img		no_tex;
+	t_img		so_tex;
+	t_img		ea_tex;
+	t_img		we_tex;
+	t_img		spr_tex;
 	int			floor_color;
 	int			ceil_color;
 	t_point		res;
@@ -93,7 +93,7 @@ int input(char *input, t_data *data);
 
 int				gnl(int fd, char **line);
 int				get_resolution(char *line, t_point *to_fill);
-int				get_texture(char * line, t_data *data, t_my_img *tex);
+int				get_texture(char * line, t_data *data, t_img *tex);
 int				get_color(char *line, int *color);
 
 //hooks.c
