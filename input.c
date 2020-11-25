@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 13:06:47 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/10/31 17:13:50 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/25 00:11:41 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ int	validate(t_data *d)
 		d->res.x = screenwidth;
 	if (d->res.y > screenheight)
 		d->res.y = screenheight;
-	return (!(d->no_tex.img && d->so_tex.img &&
-			d->ea_tex.img && d->we_tex.img && d->spr_tex.img && d->floor_color
+	return (!(d->no_tex.ptr && d->so_tex.ptr &&
+			d->ea_tex.ptr && d->we_tex.ptr && d->spr_tex.ptr && d->floor_color
 			&& d->ceil_color && d->res.x <= screenwidth &&
 			d->res.x > 0 && d->res.y > 0
 			));

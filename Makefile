@@ -6,7 +6,7 @@
 #    By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/07 18:56:37 by zacharyku         #+#    #+#              #
-#    Updated: 2020/11/12 14:54:30 by zacharyku        ###   ########.fr        #
+#    Updated: 2020/11/25 15:29:25 by zacharyku        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,11 @@ pull:
 	clear
 	git pull
 	make all
+
+push:
+	git add .
+	git commit -m "test"
+	git push
 
 all: $(NAME)
 
