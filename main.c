@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 15:54:36 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/10/31 17:18:01 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/25 15:52:30 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,16 @@ void my_error(int ecode, t_data *data)
 
 void clear_data(t_data *d)
 {
-	if (d->no_tex.img)
-		mlx_destroy_image(d->mlx_ptr, d->no_tex.img);
-	if (d->so_tex.img)
-		mlx_destroy_image(d->mlx_ptr, d->so_tex.img);
-	if (d->ea_tex.img)
-		mlx_destroy_image(d->mlx_ptr, d->ea_tex.img);
-	if (d->we_tex.img)
-		mlx_destroy_image(d->mlx_ptr, d->we_tex.img);
-	if (d->spr_tex.img)
-		mlx_destroy_image(d->mlx_ptr, d->spr_tex.img);
+	if (d->no_tex.ptr)
+		mlx_destroy_image(d->mlx_ptr, d->no_tex.ptr);
+	if (d->so_tex.ptr)
+		mlx_destroy_image(d->mlx_ptr, d->so_tex.ptr);
+	if (d->ea_tex.ptr)
+		mlx_destroy_image(d->mlx_ptr, d->ea_tex.ptr);
+	if (d->we_tex.ptr)
+		mlx_destroy_image(d->mlx_ptr, d->we_tex.ptr);
+	if (d->spr_tex.ptr)
+		mlx_destroy_image(d->mlx_ptr, d->spr_tex.ptr);
 	if (d->win)
 		mlx_destroy_window(d->mlx_ptr, d->win);
 	free(d->error_data);
