@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/27 14:05:28 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/11/25 16:20:15 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/25 16:27:51 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,15 @@ int	get_texture(char *line, t_data *data, t_img *img)
 		img->adr = mlx_get_data_addr(img->ptr, &img->bpp, &img->sl, &img->endian);
 		return (4 * (img->width <= 0 || img->height <= 0));
 	}
-	if ((img->ptr = mlx_png_file_to_image
-			(data->mlx_ptr, line, &(img->width), &(img->height))))
-	{
-		img->adr = mlx_get_data_addr(img->ptr, img->bpp, img->sl, img->endian);
-		return (4 * (img->width <= 0 || img->height <= 0));
-	{
-	data->error_data = ft_strdup(line);
+/*
+**	if ((img->ptr = mlx_png_file_to_image
+**			(data->mlx_ptr, line, &(img->width), &(img->height))))
+**	{
+**		img->adr = mlx_get_data_addr(img->ptr, img->bpp, img->sl, img->endian);
+**		return (4 * (img->width <= 0 || img->height <= 0));
+**	{
+**	data->error_data = ft_strdup(line);
+*/
 	return (4);
 }
 
