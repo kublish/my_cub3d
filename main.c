@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 15:54:36 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/11/25 15:52:30 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/25 15:53:29 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void clear_data(t_data *d)
 		mlx_destroy_window(d->mlx_ptr, d->win);
 	free(d->error_data);
 	free(d->map.table);
-	mlx_destroy_dispaly(d->mlx_ptr);
+	mlx_destroy_display(d->mlx_ptr);
 	system("leaks cub3d");
 }
 
