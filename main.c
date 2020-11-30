@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 15:54:36 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/11/30 11:58:52 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/30 11:59:53 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int main(void)
 		printf("%s", data->map.table);
 		printf("=========================================================");
 		printf("%s", data->map.table + data->map.rowlen);
-		launch(data);	
+	//	launch(data);	
 	}
 	clear_data(data);
 	free(data);
