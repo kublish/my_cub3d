@@ -6,7 +6,7 @@
 /*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 02:02:04 by zkubli            #+#    #+#             */
-/*   Updated: 2020/11/25 16:24:20 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/29 22:22:08 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,5 +110,5 @@ int				read_map(char *line, int fd, t_data *data);
 
 int				is_player(const char a);
 void			ray_init(t_data *d, double ratio);
-int             ray_cast(t_data *d);
+double			ray_cast(t_data *d);
 #endif
