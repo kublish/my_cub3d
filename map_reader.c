@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 10:50:37 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/10/31 17:24:51 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/30 14:18:56 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int		check_map(t_data *d)
 		return ((ec > 1) ? 12 : 11);
 	i = (long)d->map.table;
 	while (i < (long)(d->map.table + d->map.tablelen))
-		if ((ec = check_line(i, d->map.rowlen,
+		if ((ec = check_line(i, 1,
 				(long)(d->map.table + d->map.tablelen))))
 			return (ec);
 		else
