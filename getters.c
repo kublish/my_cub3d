@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/27 14:05:28 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/11/25 16:27:51 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/30 13:27:20 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,13 @@ int	gnl(int fd, char **line)
 			return (1);
 		}
 		else
+		{
+			fprintf(stderr, "gnl:%s\n", line);
 			return (0);
+		}
 	ft_strcpy(buffer, split + 1);
 	*(split) = '\0';
+	fprintf(stderr, "gnl:%s\n", line);
 	return (0);
 }
 
