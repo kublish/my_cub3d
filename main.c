@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 15:54:36 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/11/30 11:09:45 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/30 11:58:52 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void clear_data(t_data *d)
 	system("leaks cub3d");
 }
 
+#include <stdio.h>
+
 int main(void)
 {
 	t_data	*data;
@@ -81,6 +83,9 @@ int main(void)
 		my_error(ecode, data);
 	else
 	{
+		printf("%s", data->map.table);
+		printf("=========================================================");
+		printf("%s", data->map.table + data->map.rowlen);
 		launch(data);	
 	}
 	clear_data(data);
