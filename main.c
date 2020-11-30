@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 15:54:36 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/11/25 15:53:29 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/30 11:09:45 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int main(void)
 	data = malloc(sizeof(t_data));
 	ft_bzero(data, sizeof(t_data));
 	data->mlx_ptr = mlx_init();
-	if ((ecode = input("input.txt", data)))
+	if ((ecode = input("maps/map.cub", data)))
 		my_error(ecode, data);
 	else
 	{
