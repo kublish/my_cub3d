@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 20:16:49 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/11/30 11:00:44 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/30 11:41:48 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,14 @@ void    ray_init(t_data *d, double ratio)
 	d->ray.sideDist.x *= d->ray.deltaDist.x;
 }
 
+int		check_map(t_data *d, t_point *p)
+{
+	if (p.x > d->map.rowlen || p.x < 0 ||
+			p.y * d->map.rowlen > d->map.tablelen || p.y < 0)
+		return (-1);
+	return (d->map.table[p.x + p.y *d->map.rowlen]);
+}
+
 double	ray_cast(t_data *d)
 {
     int     hit_found;
@@ -61,7 +69,7 @@ double	ray_cast(t_data *d)
 			d->ray.hit.y += d->ray.inc.y;
 			d->ray.is_NS = 1;
 		}
-		if (d->map.table[d->ray.hit.x + d->ray.hit.y * d->map.rowlen] == 1)
+		if (check_map(d, &d->ray.hit) == 1)
 			hit_found = 1;
 	}
 	if (d->ray.is_NS)
