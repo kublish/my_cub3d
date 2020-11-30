@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-LIBS = -lmlx libft/libft.a
+LIBS = libft/libft.a -ldl -lm -lmlx -lXext -lX11
 FLAGS = -fsanitize=address #-Wall -Wextra -Werror
 OBJS = main.o launch.o render.o input.o getters.o hooks.o map_reader.o tools.o movement.o
 NAME = cub3d
@@ -29,7 +29,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) cub3d.h hooks.h
 	cd libft && $(MAKE)
-	gcc -g $(LIBS) $(FLAGS) -o $(NAME) $(OBJS)
+	gcc -g $(FLAGS) -o $(NAME) $(OBJS) $(LIBS)
 
 $(OBJS): %.o : %.c
 	gcc -g -c $(FLAGS) $<
