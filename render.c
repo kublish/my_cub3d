@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 11:58:56 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/01 11:02:53 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/01 11:06:25 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void render_col(t_data *data, int x, double perp_dist)
 	int y;
 	int color;
 
+	fprintf(stderr, "perp_d:%f\n", perp_dist);
 	wall_start = (int)((data->res.y - data->res.y / perp_dist) / 2);
 	wall_end = (int)ceil((data->res.y + data->res.y / perp_dist) / 2);
 	y = 0;
@@ -31,7 +32,7 @@ void render_col(t_data *data, int x, double perp_dist)
 			else if (y > wall_end)
 				color = 0x00333333; //floor color
 			else
-				color = 0x00333333; //wall color
+				color = 0x00999999; //wall color
 			mlx_pixel_put(data->mlx_ptr, data->win, x, y++, color);
 	}  
 }

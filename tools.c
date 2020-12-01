@@ -6,10 +6,11 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 20:16:49 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/01 10:36:10 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/01 11:06:56 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <math.h>
 #include "cub3d.h"
 
