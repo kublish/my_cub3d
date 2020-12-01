@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 15:54:36 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/11/30 12:56:50 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/30 21:28:23 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,11 @@ int main(void)
 	data = malloc(sizeof(t_data));
 	ft_bzero(data, sizeof(t_data));
 	data->mlx_ptr = mlx_init();
-	if ((ecode = input("maps/map.cub", data)))
+	if ((ecode = input("maps/sqr.cub", data)))
 		my_error(ecode, data);
 	else
 	{
-		printf("%s", data->map.table);
-		printf("=========================================================");
-		printf("%s", data->map.table + data->map.rowlen);
-	//	launch(data);	
+		launch(data);	
 	}
 	clear_data(data);
 	free(data);
