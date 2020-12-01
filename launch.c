@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 15:54:13 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/01 10:27:44 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/01 10:38:35 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	init_camera(t_data *d)
 	d->cam.player.x = d->cam.player_int.x + .5;
 	d->cam.player.y = d->cam.player_int.y + .5;
 	if (d->map.table[i] == 'N' || d->map.table[i] == 'S')
-	    d->cam.dir.y = (d->map.table[i] == 'N' ? 1 : -1);
+	    d->cam.dir.y = (d->map.table[i] == 'N' ? -1 : 1);
 	else
 	    d->cam.dir.x = (d->map.table[i] == 'E' ? 1 : -1);
 	d->cam.plane = 1.0;
