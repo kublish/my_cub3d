@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 10:50:37 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/01 10:28:25 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/01 10:34:44 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,11 @@ int		read_map(char *line, int fd, t_data *data)
 
 	root = ft_lstnew(&line, sizeof(char *));
 	data->map.tablelen = 1;
-	data->map.rowlen = ft_strlen(line) + 1;
+	data->map.rowlen = ft_strlen(line);
 	while (gnl(fd, &line) != 1)
 	{
 		ft_lstadd(&root, ft_lstnew(&line, sizeof(char *)));
-		if ((strlen = ft_strlen(line) + 1) > data->map.rowlen)
+		if ((strlen = ft_strlen(line)) > data->map.rowlen)
 			data->map.rowlen = strlen;
 		data->map.tablelen++;
 	}
