@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 20:16:49 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/11/30 11:50:16 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/30 21:44:24 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int		get_map_point(t_data *d, t_point *p)
 {
 	if (p->x > d->map.rowlen || p->x < 0 ||
 			p->y * d->map.rowlen > d->map.tablelen || p->y < 0)
+		return (-1);
+	if (p->x + p->y * d->map.rowlen > d->map.tablelen)
 		return (-1);
 	return (d->map.table[p->x + p->y * d->map.rowlen]);
 }
