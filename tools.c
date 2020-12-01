@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 20:16:49 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/11/30 21:48:36 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/11/30 21:50:29 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ void    ray_init(t_data *d, double ratio)
 #include <stdio.h>
 int		get_map_point(t_data *d, t_point *p)
 {
+	fprintf(stderr, "get_map: %4i, %4i\n", p->x, p->y);
 	if (p->x > d->map.rowlen || p->x < 0 ||
 			p->y * d->map.rowlen > d->map.tablelen || p->y < 0)
 		return (-1);
-	fprintf(stderr, "get_map: %4i, %4i\n", p->x, p->y);
 	return (d->map.table[p->x + p->y * d->map.rowlen]);
 }
 
