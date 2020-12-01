@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 11:58:56 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/11/29 22:05:34 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/01 10:50:18 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ void render_screen(t_data *d)
         ray_init(d, (i + 1.0) / d->res.x * d->cam.plane);
         perp_dist = ray_cast(d);
 		render_col(d, i, perp_dist);
+		i++;
     }
 }
