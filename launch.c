@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 15:54:13 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/11/02 13:54:51 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/01 10:27:44 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	init_camera(t_data *d)
 {
 	int i;
 
+	i = 0;
 	while (!is_player(d->map.table[i]))
 		i++;
 	d->cam.player_int.x = i % d->map.rowlen;
@@ -43,7 +44,7 @@ void	init_camera(t_data *d)
 
 void	launch(t_data *d)
 {
-	
+	init_camera(d);	
 	d->win = mlx_new_window(d->mlx_ptr, d->res.x, d->res.y, "zkubli cub3d");
 
 	mlx_key_hook(d->win, &my_key_hook, (void *)d);
