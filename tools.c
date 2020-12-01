@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 20:16:49 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/01 10:17:19 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/01 10:33:03 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void    ray_init(t_data *d, double ratio)
 #include <stdio.h>
 int		get_map_point(t_data *d, t_point *p)
 {
-	fprintf(stderr, "get_map: %4i, %4i\n", p->x, p->y);
+	//fprintf(stderr, "get_map: %4i, %4i\n", p->x, p->y);
 	if (p->x > d->map.rowlen || p->x < 0 ||
 			p->y * d->map.rowlen >= d->map.tablelen || p->y < 0)
 		return (-1);
@@ -71,8 +71,12 @@ double	ray_cast(t_data *d)
 			d->ray.hit.y += d->ray.inc.y;
 			d->ray.is_NS = 1;
 		}
-		if (get_map_point(d, &d->ray.hit) == 1)
+		if (hit_found = get_map_point(d, &d->ray.hit))
+		{
+			fprintf(stderr, "hit found: %4i, %4i:\t%d\n",
+					d->ray.hit.x, d->ray.hit.y, hit_found);
 			hit_found = 1;
+		}
 	}
 	if (d->ray.is_NS)
 		return ((d->ray.sideDist.y - d->ray.deltaDist.y) / d->ray.dir.y); 
