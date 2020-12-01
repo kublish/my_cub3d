@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 20:16:49 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/01 11:06:56 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/01 11:09:56 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void    ray_init(t_data *d, double ratio)
 	d->ray.sideDist.x *= d->ray.deltaDist.x;
 }
 
-#include <stdio.h>
 int		get_map_point(t_data *d, t_point *p)
 {
 	//fprintf(stderr, "get_map: %4i, %4i\n", p->x, p->y);
@@ -80,7 +79,7 @@ double	ray_cast(t_data *d)
 		}
 	}
 	if (d->ray.is_NS)
-		return ((d->ray.sideDist.y - d->ray.deltaDist.y) / d->ray.dir.y); 
+		return (fabs(d->ray.sideDist.y - d->ray.deltaDist.y) / d->ray.dir.y); 
 	else
-		return ((d->ray.sideDist.x - d->ray.deltaDist.x) / d->ray.dir.x); 
+		return (fabs(d->ray.sideDist.x - d->ray.deltaDist.x) / d->ray.dir.x); 
 }
