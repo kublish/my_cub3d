@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 20:16:49 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/02 14:59:00 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/02 15:29:56 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ double	ray_cast(t_data *d)
 			hit_found = 1;
 		}
 	}
-	if (d->ray.is_NS)
+//	if (d->ray.is_NS)
 		return (fabs((d->ray.sideDist.y - d->ray.deltaDist.y) / d->ray.dir.y)); 
 //	else
 //		return (fabs((d->ray.sideDist.x - d->ray.deltaDist.x) / d->ray.dir.x)); 
