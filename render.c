@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 11:58:56 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/02 16:09:16 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/02 16:10:56 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void render_screen(t_data *d)
 	i = 0;
 	while (i < d->res.x)
     {
-        ray_init(d, ((i + 1.0) / d->res.x - d->res.x / 2) * d->cam.plane);
+        ray_init(d, ((i + 1.0) / d->res.x - .5) * d->cam.plane);
         perp_dist = ray_cast(d);
 		render_col(d, i, perp_dist);
 		i++;
