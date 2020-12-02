@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 15:54:13 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/02 16:03:18 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/02 16:47:09 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	init_camera(t_data *d)
 	    d->cam.dir.y = (d->map.table[i] == 'N' ? -1 : 1);
 	else
 	    d->cam.dir.x = (d->map.table[i] == 'E' ? 1 : -1);
-	d->cam.plane = 1.0;
+	d->cam.plane = 2.0;
 }
 
 void	launch(t_data *d)
