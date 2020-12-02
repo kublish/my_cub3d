@@ -6,7 +6,7 @@
 /*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 02:02:04 by zkubli            #+#    #+#             */
-/*   Updated: 2020/12/02 12:55:45 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/02 13:00:17 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,10 @@ int				get_color(char *line, int *color);
 //movement.c
 
 void			rotate_cam(double rad, t_data *d);
+
+//render.c
+
+void			render_screen(t_data *d);
 
 //hooks.c
 int				my_key_hook(int keycode, void *param);

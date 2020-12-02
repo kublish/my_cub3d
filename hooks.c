@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 01:29:10 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/02 12:56:24 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/02 13:00:23 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int my_mouse_hook(int button, int x, int y, void *param)
 {
 	fprintf(stderr, "button: %d at %6d, %5d\n", button, x, y);
 	rotate_cam(.1, param);
+	render_screen(param);
 	return (0);
 }
 
