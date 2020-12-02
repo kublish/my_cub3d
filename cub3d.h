@@ -6,7 +6,7 @@
 /*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 02:02:04 by zkubli            #+#    #+#             */
-/*   Updated: 2020/12/02 13:59:37 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/02 14:36:47 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ int				get_color(char *line, int *color);
 //movement.c
 
 void			rotate_cam(double rad, t_data *d);
+void			move_cam(int direction, t_data *d);
 
 //render.c
 
