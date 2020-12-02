@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 20:16:49 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/02 16:05:51 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/02 16:07:31 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int     is_player(const char a)
 
 void    ray_init(t_data *d, double ratio)
 {
-	d->ray.dir.x = -d->cam.dir.y * ratio + d->cam.dir.x; 
-	d->ray.dir.y = d->cam.dir.x * ratio + d->cam.dir.y;
+	d->ray.dir.x = d->cam.dir.y * ratio + d->cam.dir.x; 
+	d->ray.dir.y = -d->cam.dir.x * ratio + d->cam.dir.y;
     d->ray.hit.x = (int)d->cam.player.x;
     d->ray.hit.y = (int)d->cam.player.y;
     d->ray.inc.x = (d->ray.dir.x < 0 ? -1 : 1);
