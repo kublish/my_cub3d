@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 11:58:56 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/02 14:43:14 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/02 14:44:13 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void render_col(t_data *data, int x, double perp_dist)
 				color = 0x00333333; //floor color
 			else
 				color = 0x00999999; //wall color
-			if (data->ray.hit.is_NS)
+			if (data->ray.is_NS)
 				color = color *.8;
 			mlx_pixel_put(data->mlx_ptr, data->win, x, y++, color);
 	}  
