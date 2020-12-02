@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 20:16:49 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/02 15:29:56 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/02 15:34:29 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ double	ray_cast(t_data *d)
 			d->ray.hit.y += d->ray.inc.y;
 			d->ray.is_NS = 1;
 		}
-		if ((hit_found = get_map_point(d, &d->ray.hit) - 48))
+		if ((hit_found = get_map_point(d, &d->ray.hit) - 48) == 1)
 		{
 		//	fprintf(stderr, "hit found: %4i, %4i:\t%d\n",
 		//			d->ray.hit.x, d->ray.hit.y, hit_found);
