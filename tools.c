@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 20:16:49 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/02 15:35:56 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/02 15:43:12 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ double	ray_cast(t_data *d)
 		}
 	}
 	if (d->ray.is_NS)
-		return (fabs((d->ray.sideDist.y - d->ray.deltaDist.y) / d->ray.dir.y)); 
+		return (fabs((d->ray.hit.y - d->cam.player.y) / d->ray.dir.y)); 
 	else
-		return (fabs((d->ray.sideDist.x - d->ray.deltaDist.x) / d->ray.dir.x)); 
+		return (fabs((d->ray.hit.x - d->cam.player.x) / d->ray.dir.x)); 
 }
