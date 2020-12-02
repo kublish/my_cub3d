@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 20:16:49 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/02 13:02:52 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/02 14:53:08 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ double	ray_cast(t_data *d)
 		{
 			d->ray.sideDist.x += d->ray.deltaDist.x;
 			d->ray.hit.x += d->ray.inc.x;
-			d->ray.is_NS = 1;
+			d->ray.is_NS = 0;
 		}
 		else
 		{
