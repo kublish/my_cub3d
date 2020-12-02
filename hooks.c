@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 01:29:10 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/02 13:08:06 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/02 14:35:41 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,17 @@ int my_key_hook(int keycode, void *param)
 {
 	fprintf(stderr, "keycode: %d\n", keycode);
 	if (keycode == 65361)
-		rotate_cam(.05, param);
+		rotate_cam(TURN_SPEED, param);
 	else if (keycode == 65363)
-		rotate_cam(-.05, param);
+		rotate_cam(-TURN_SPEED, param);
+	else if (keycode == 119)
+		move_cam(0, param);
+	else if (keycode == 100)
+		move_cam(1, param);
+	else if (keycode == 115)
+		move_cam(2, param);
+	else if (keycode == 97)
+		move_cam(3, param);
 	render_screen(param);
 	return (0);
 }
