@@ -6,7 +6,7 @@
 /*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 02:02:04 by zkubli            #+#    #+#             */
-/*   Updated: 2020/11/29 22:22:08 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/02 12:55:45 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,10 @@ int				gnl(int fd, char **line);
 int				get_resolution(char *line, t_point *to_fill);
 int				get_texture(char * line, t_data *data, t_img *tex);
 int				get_color(char *line, int *color);
+
+//movement.c
+
+void			rotate_cam(double rad, t_data *d);
 
 //hooks.c
 int				my_key_hook(int keycode, void *param);

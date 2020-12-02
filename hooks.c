@@ -6,11 +6,12 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 01:29:10 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/11/01 08:39:27 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/02 12:54:56 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "cub3d.h"
 
 int my_key_hook(int keycode, void *param)
 {
@@ -21,6 +22,7 @@ int my_key_hook(int keycode, void *param)
 int my_mouse_hook(int button, int x, int y, void *param)
 {
 	fprintf(stderr, "button: %d at %6d, %5d\n", button, x, y);
+	rotate_came(.1, param);
 	return (0);
 }
 
