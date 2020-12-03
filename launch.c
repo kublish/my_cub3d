@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 15:54:13 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/03 16:46:24 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/03 16:52:47 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ void	init_screen(t_data *d)
 {
 	d->screen.ptr = mlx_new_image(d->mlx_ptr, d->res.x, d->res.y);
 	d->screen.adr = mlx_get_data_addr(d->screen.ptr, &d->screen.bpp,
-		&d->screen.sl, &d->screen.endian);
+			&d->screen.sl, &d->screen.endian);
+	fprintf("bpp:%d\nsl%d\nendian:%d\n", d->screen.bpp, d->screen.sl,
+			d->screen.endian);
 }
 
 void	launch(t_data *d)
