@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 15:54:13 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/03 17:03:19 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/03 17:04:54 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,7 @@ void	init_camera(t_data *d)
 
 void	init_screen(t_data *d)
 {
-	fprintf(stderr, "size of void *:%llu\n", sizeof(void *));
-	void *test  = mlx_new_image(d->mlx_ptr, d->res.x, d->res.y);
+	d->test = mlx_new_image(d->mlx_ptr, d->res.x, d->res.y);
 	d->screen.ptr = mlx_new_image(d->mlx_ptr, d->res.x, d->res.y);
 	d->screen.adr = mlx_get_data_addr(d->screen.ptr, &d->screen.bpp,
 			&d->screen.sl, &d->screen.endian);
