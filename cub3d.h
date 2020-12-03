@@ -6,7 +6,7 @@
 /*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 02:02:04 by zkubli            #+#    #+#             */
-/*   Updated: 2020/12/03 16:49:21 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/03 16:54:39 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct	s_img
 	int			sl;
 	int			endian;
 	void		*ptr;
-	int			*adr;
+	void		*adr;
 }				t_img;
 
 typedef struct	s_map
