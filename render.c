@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 11:58:56 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/03 18:40:19 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/03 18:45:15 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void render_col(t_data *data, int x, double perp_dist)
 				color = 0x00333333; //floor color
 			else
 				color = (data->ray.is_NS ? 0x00999999 : 0x00CCCCCC); //wallcolor
-			((char *)(data->screen.adr))[x + y++ * data->screen.sl] = color;
+			fprintf(stderr, "writing to screen x: %4d, y:%4d\n");
+			((int *)(data->screen.adr))[x + y++ * data->screen.sl] = color;
 	}  
 }
 
