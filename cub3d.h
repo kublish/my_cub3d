@@ -6,7 +6,7 @@
 /*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 02:02:04 by zkubli            #+#    #+#             */
-/*   Updated: 2020/12/03 17:11:46 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/03 17:14:34 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ typedef struct	s_data
 {
 	void 		*mlx_ptr;
 	void		*win;
-	void		*test2;
 	t_img		no_tex;
 	t_img		so_tex;
 	t_img		ea_tex;
