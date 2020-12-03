@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 15:54:13 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/02 16:47:09 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/03 16:46:24 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,17 @@ void	init_camera(t_data *d)
 	d->cam.plane = 2.0;
 }
 
+void	init_screen(t_data *d)
+{
+	d->screen.ptr = mlx_new_image(d->mlx_ptr, d->res.x, d->res.y);
+	d->screen.adr = mlx_get_data_addr(d->screen.ptr, &d->screen.bpp,
+		&d->screen.sl, &d->screen.endian);
+}
+
 void	launch(t_data *d)
 {
 	init_camera(d);	
 	d->win = mlx_new_window(d->mlx_ptr, d->res.x, d->res.y, "zkubli cub3d");
-
 	mlx_key_hook(d->win, &my_key_hook, (void *)d);
 	mlx_mouse_hook(d->win, &my_mouse_hook, (void *)d);
 	mlx_expose_hook(d->win, &my_expose_hook, (void *)d);

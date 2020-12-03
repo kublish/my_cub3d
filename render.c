@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 11:58:56 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/02 17:13:37 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/03 16:45:24 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void render_col(t_data *data, int x, double perp_dist)
 				color = 0x00333333; //floor color
 			else
 				color = (data->ray.is_NS ? 0x00999999 : 0x00CCCCCC); //wallcolor
-			mlx_pixel_put(data->mlx_ptr, data->win, x, y++, color);
+			data->screen[x + y++ * data->screen.sl] = color;
 	}  
 }
 
@@ -51,5 +51,6 @@ void render_screen(t_data *d)
 		render_col(d, i, perp_dist);
 		i++;
     }
+	mlx_put_image_to_window(d->mlx_ptr, d->win, 0, 0);
 	fprintf(stderr, "render end.\n");
 }

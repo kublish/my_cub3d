@@ -6,7 +6,7 @@
 /*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 02:02:04 by zkubli            #+#    #+#             */
-/*   Updated: 2020/12/02 15:54:53 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/02 17:18:06 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ typedef struct	s_data
 	t_ray_data	ray;
 	char		*error_data;
 	t_map		map;
+	t_img		screen;
 }				t_data;
 
 void			launch(t_data *data);
