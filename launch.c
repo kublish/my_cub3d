@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 15:54:13 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/03 16:54:12 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/03 16:57:07 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	launch(t_data *d)
 {
 	init_camera(d);	
 	d->win = mlx_new_window(d->mlx_ptr, d->res.x, d->res.y, "zkubli cub3d");
+	init_screen(d);
 	mlx_key_hook(d->win, &my_key_hook, (void *)d);
 	mlx_mouse_hook(d->win, &my_mouse_hook, (void *)d);
 	mlx_expose_hook(d->win, &my_expose_hook, (void *)d);
