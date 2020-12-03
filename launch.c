@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 15:54:13 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/03 17:30:49 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/03 18:51:49 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	launch(t_data *d)
 	mlx_mouse_hook(d->win, &my_mouse_hook, (void *)d);
 	mlx_expose_hook(d->win, &my_expose_hook, (void *)d);
 	mlx_loop_hook(d->win, &my_loop_hook, (void *)d);
-	
+	mlx_do_key_autorepeaton(d->mlx_ptr);		
 	
 	init_screen(d);
 	

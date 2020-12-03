@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 11:58:56 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/03 18:47:45 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/03 18:52:29 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void render_screen(t_data *d)
 {
 	int			i;
 	double		perp_dist;
-	fprintf(stderr, "render start.\n");
+	//fprintf(stderr, "render start.\n");
 	i = 0;
 	while (i < d->res.x)
     {
@@ -53,5 +53,5 @@ void render_screen(t_data *d)
 		i++;
     }
 	mlx_put_image_to_window(d->mlx_ptr, d->win, d->screen.ptr, 0, 0);
-	fprintf(stderr, "render end.\n");
+	//fprintf(stderr, "render end.\n");
 }

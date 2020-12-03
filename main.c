@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 15:54:36 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/03 18:41:15 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/03 18:50:18 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void clear_data(t_data *d)
 		mlx_destroy_image(d->mlx_ptr, d->we_tex.ptr);
 	if (d->spr_tex.ptr)
 		mlx_destroy_image(d->mlx_ptr, d->spr_tex.ptr);
-	if (d->win)
+	if (d->mlx_ptr && d->win)
 		mlx_destroy_window(d->mlx_ptr, d->win);
 	free(d->error_data);
 	free(d->map.table);
