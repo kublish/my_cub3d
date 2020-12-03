@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 15:54:13 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/03 17:09:51 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/03 17:11:54 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ void	init_screen(t_data *d)
 
 	
 	//d->screen.ptr = mlx_new_image(d->mlx_ptr, d->res.x, d->res.y);
-	tmp = mlx_new_image(d->mlx_ptr, d->res.x, d->res.y);
-	ft_memcpy(d->screen.ptr, tmp, 8);
+	test2 = mlx_new_image(d->mlx_ptr, d->res.x, d->res.y);
 	d->screen.adr = mlx_get_data_addr(d->screen.ptr, &d->screen.bpp,
 			&d->screen.sl, &d->screen.endian);
 	fprintf(stderr, "bpp:%d\nsl%d\nendian:%d\n", d->screen.bpp, d->screen.sl,
