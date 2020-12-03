@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 15:54:36 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/03 17:17:13 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/03 18:41:15 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,9 @@ int main(void)
 	int		ecode;
 	int		a, b;
 
-	fprintf(stderr, "sizeof t_data:%lu\n", sizeof(t_data));
+	fprintf(stderr, "sizeof char:%lu\n", sizeof(char));
+	fprintf(stderr, "sizeof int:%lu\n", sizeof(int));
+	fprintf(stderr, "sizeof short:%lu\n", sizeof(short));
 	data = malloc(sizeof(t_data));
 	ft_bzero(data, sizeof(t_data));
 	data->mlx_ptr = mlx_init();
