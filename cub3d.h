@@ -6,14 +6,14 @@
 /*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 02:02:04 by zkubli            #+#    #+#             */
-/*   Updated: 2020/12/04 14:34:15 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/04 15:29:47 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
-# define MOVE_SPEED .15
-# define TURN_SPEED .19634964
+# define MOVE_SPEED .05
+# define TURN_SPEED .04908738521
 # include <mlx.h>
 # define READ_BUF	64
 # define RED 		0x00FF0000
