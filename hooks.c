@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 01:29:10 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/03 18:52:16 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/04 14:35:58 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ int my_key_hook(int keycode, void *param)
 		move_cam(3, param);
 	render_screen(param);
 	return (0);
+}
+
+int	my_press_hook(int keycode, void *param)
+{
+	fprintf(stderr, "test:%d\n", keycode);
+	fprintf(stderr, "param:%p", param);
 }
 
 int my_mouse_hook(int button, int x, int y, void *param)

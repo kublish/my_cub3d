@@ -6,7 +6,7 @@
 /*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 02:02:04 by zkubli            #+#    #+#             */
-/*   Updated: 2020/12/03 17:31:06 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/04 14:34:15 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ void			render_screen(t_data *d);
 
 //hooks.c
 int				my_key_hook(int keycode, void *param);
+int				my_press_hook(int keycode, void *param);
 int				my_mouse_hook(int button, int x, int y, void *param);
 int				my_expose_hook(void *param);
 int				my_loop_hook(void *param);
