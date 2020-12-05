@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 11:58:56 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/04 20:48:55 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/04 20:49:35 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	render_col(t_data *data, int x, double perp_dist)
 				fprintf(stderr, "c.wall_start: \t%4d\n", c.wall_start);
 				fprintf(stderr, "c.wall_end:   \t%4d\n", c.wall_end);
 				fprintf(stderr, "c.wall_end:   \t%4d\n", c.wall_size);
-				fprintf(stderr, "doubc.wall_end\t%4d\n", ((double)(c.wall_size));
+				fprintf(stderr, "doubc.wall_end\t%4lf\n", ((double)(c.wall_size));
 				//c.tcord.y = (int)((double)(c.tex->height) * (y - c.wall_start) / ((double)(c.wall_size)));
 				c.tcord.y = (c.tex->height * (y - c.wall_start) / ((double)(c.wall_size)));
 				fprintf(stderr, "c.tcord.y:%d\n", c.tcord.y);
