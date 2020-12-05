@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 11:58:56 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/04 20:51:24 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/04 20:52:12 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	render_col(t_data *data, int x, double perp_dist)
 				c.tcord.y = (c.tex->height * (y - c.wall_start) / ((double)(c.wall_size)));
 			//	fprintf(stderr, "c.tcord.y:%d\n", c.tcord.y);
 				color = ((int *)(c.tex->adr))[(c.tcord.x + c.tcord.y
-						* c.tex->width) * c.tex->bpp];
+						* c.tex->width)];
 			}
 			//fprintf(stderr, "writing to screen x: %4d, y:%4d\n", x, y);
 			((int *)(data->screen.adr))[x + y++ * data->res.x] = color;
