@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 11:58:56 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/04 19:45:34 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/04 20:37:54 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ void	render_col(t_data *data, int x, double perp_dist)
 				color = 0x00333333; //floor color
 			else
 			{
+				fprintf(stderr, "c.tex->height:\t%4d\n", c.tex->height);
+				fprintf(stderr, "y:            \t%4d\n", y);
+				fprintf(stderr, "c.wall_start: \t%4d\n", c.wall_start);
+				fprintf(stderr, "c.wall_end:   \t%4d\n", c.wall_end);
 				c.tcord.y = (int)(c.tex->height *
 						(y - c.wall_start) / ((double)(c.wall_size)));
 				fprintf(stderr, "c.tcord.y:%d\n", c.tcord.y);
