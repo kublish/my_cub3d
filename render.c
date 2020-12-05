@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 11:58:56 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/04 19:29:20 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/04 19:31:15 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ void	init_col(t_data *d, t_col *c, double perp_dist)
 	c->wall_end = (int)((d->res.y + d->res.y / perp_dist) / 2);
 	c->wall_size = c->wall_end - c->wall_end;
 	if (d->ray.is_NS)
-		c->tex = &(d->ray.hit.y + .5 > d->cam.player.y ?
+		c->tex = (d->ray.hit.y + .5 > d->cam.player.y ?
 				&d->no_tex : &d->so_tex);
 	else
-		c->tex = &(d->ray.hit.x + .5 > d->cam.player.x ?
+		c->tex = (d->ray.hit.x + .5 > d->cam.player.x ?
 				&d->we_tex : &d->ea_tex);
 	wallx = d->cam.player.x +  d->ray.dir.x * perp_dist; 
 	wallx -= floor(wallx);
-	c->tcord.x = wallx * c->tex.width;	
+	c->tcord.x = wallx * c->tex->width;	
 	c->tcord.y = 0;
 	return (0);
 }
@@ -52,9 +52,9 @@ void	render_col(t_data *data, int x, double perp_dist)
 				color = 0x00333333; //floor color
 			else
 			{
-				c.tcord.y = ((int)c.tex.height *
+				c.tcord.y = ((int)c.tex->height *
 						(y - c.wall_start) / ((double)(c.wall_size)));
-				color = c.tex.adr[c.tcord.x + c.tcord.y * c.tex.width];
+				color = c.tex->adr[c.tcord.x + c.tcord.y * c.tex->width];
 			}
 			//fprintf(stderr, "writing to screen x: %4d, y:%4d\n", x, y);
 			((int *)(data->screen.adr))[x + y++ * data->res.x] = color;
