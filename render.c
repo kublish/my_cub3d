@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 11:58:56 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/04 19:31:15 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/04 19:33:23 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	init_col(t_data *d, t_col *c, double perp_dist)
 	wallx -= floor(wallx);
 	c->tcord.x = wallx * c->tex->width;	
 	c->tcord.y = 0;
-	return (0);
 }
 
 void	render_col(t_data *data, int x, double perp_dist)
@@ -42,7 +41,7 @@ void	render_col(t_data *data, int x, double perp_dist)
 	int		y;
 	int		color;
 
-	init_col(data, c, perp_dist);
+	init_col(data, &c, perp_dist);
 	y = 0;
 	while (y < data->res.y)
 	{
