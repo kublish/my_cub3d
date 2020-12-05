@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 11:58:56 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/04 19:20:38 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/04 19:22:49 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 void	init_col(t_data *d, t_col *c, double perp_dist)
 {
-	t_img	*tex;
 	double	wallx;
 	void	*re_val;	
 	
@@ -32,7 +31,7 @@ void	init_col(t_data *d, t_col *c, double perp_dist)
 				&d->we_tex : &d->ea_tex);
 	wallx = d->cam.player.x +  d->ray.dir.x * perp_dist; 
 	wallx -= floor(wallx);
-	c->tcord.x = wallx * tex.width;	
+	c->tcord.x = wallx * c->texwidth;	
 	c->tcord.y = 0;
 	return (0);
 }
