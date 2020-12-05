@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 11:58:56 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/04 20:50:05 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/04 20:51:24 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_col(t_data *d, t_col *c, double perp_dist)
 	
 	c->wall_start = (int)((d->res.y - d->res.y / perp_dist) / 2);
 	c->wall_end = (int)((d->res.y + d->res.y / perp_dist) / 2);
-	c->wall_size = c->wall_end - c->wall_end;
+	c->wall_size = c->wall_end - c->wall_start;
 	if (d->ray.is_NS)
 		c->tex = (d->ray.hit.y + .5 > d->cam.player.y ?
 				&d->no_tex : &d->so_tex);
@@ -50,16 +50,17 @@ void	render_col(t_data *data, int x, double perp_dist)
 			else if (y > c.wall_end)
 				color = 0x00333333; //floor color
 			else
-			{
+			{/*
 				fprintf(stderr, "c.tex->height:\t%4d\n", c.tex->height);
 				fprintf(stderr, "y:            \t%4d\n", y);
 				fprintf(stderr, "c.wall_start: \t%4d\n", c.wall_start);
 				fprintf(stderr, "c.wall_end:   \t%4d\n", c.wall_end);
 				fprintf(stderr, "c.wall_end:   \t%4d\n", c.wall_size);
 				fprintf(stderr, "doubc.wall_end\t%4lf\n", ((double)(c.wall_size)));
+			*/
 				//c.tcord.y = (int)((double)(c.tex->height) * (y - c.wall_start) / ((double)(c.wall_size)));
 				c.tcord.y = (c.tex->height * (y - c.wall_start) / ((double)(c.wall_size)));
-				fprintf(stderr, "c.tcord.y:%d\n", c.tcord.y);
+			//	fprintf(stderr, "c.tcord.y:%d\n", c.tcord.y);
 				color = ((int *)(c.tex->adr))[(c.tcord.x + c.tcord.y
 						* c.tex->width) * c.tex->bpp];
 			}
