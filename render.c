@@ -6,7 +6,7 @@
 /*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 11:58:56 by zacharyku         #+#    #+#             */
-/*   Updated: 2020/12/03 18:52:29 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/04 19:20:38 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,53 @@
 #include <math.h>
 #include "cub3d.h"
 
-void render_col(t_data *data, int x, double perp_dist)
+void	init_col(t_data *d, t_col *c, double perp_dist)
 {
-	int	wall_start;
-	int	wall_end;
-	int y;
-	int color;
+	t_img	*tex;
+	double	wallx;
+	void	*re_val;	
+	
+	c->wall_start = (int)((d->res.y - d->res.y / perp_dist) / 2);
+	c->wall_end = (int)((d->res.y + d->res.y / perp_dist) / 2);
+	c->wall_size = c->wall_end - c->wall_end;
+	if (d->ray.is_NS)
+		c->tex = (d->ray.hit.y + .5 > d->cam.player.y ?
+				&d->no_tex : &d->so_tex);
+	else
+		c->tex = (d->ray.hit.x + .5 > d->cam.player.x ?
+				&d->we_tex : &d->ea_tex);
+	wallx = d->cam.player.x +  d->ray.dir.x * perp_dist; 
+	wallx -= floor(wallx);
+	c->tcord.x = wallx * tex.width;	
+	c->tcord.y = 0;
+	return (0);
+}
 
-	//fprintf(stderr, "perp_d:%f\n", perp_dist);
-	wall_start = (int)((data->res.y - data->res.y / perp_dist) / 2);
-	wall_end = (int)ceil((data->res.y + data->res.y / perp_dist) / 2);
+void	render_col(t_data *data, int x, double perp_dist)
+{
+	t_col	c;
+	int		y;
+	int		color;
+
 	y = 0;
 	while (y < data->res.y)
 	{
-			if (y < wall_start)
+			if (y < c.wall_start)
 				color = 0x00FFFFFF;	//ceiling color
-			else if (y > wall_end)
+			else if (y > c.wall_end)
 				color = 0x00333333; //floor color
 			else
-				color = (data->ray.is_NS ? 0x00999999 : 0x00CCCCCC); //wallcolor
+			{
+				c->tcord.y = ((int)c->tex.height *
+						(y - c.wall_start) / ((double)(c.wall_size));
+				color = c->tex.adr[c->tcord.x + c->tcord.y * c->tex_width];
+			}
 			//fprintf(stderr, "writing to screen x: %4d, y:%4d\n", x, y);
 			((int *)(data->screen.adr))[x + y++ * data->res.x] = color;
 	}  
 }
 
-void render_screen(t_data *d)
+void	render_screen(t_data *d)
 {
 	int			i;
 	double		perp_dist;
