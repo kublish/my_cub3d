@@ -6,7 +6,7 @@
 /*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 02:02:04 by zkubli            #+#    #+#             */
-/*   Updated: 2020/12/04 19:07:33 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/04 19:26:03 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ typedef struct	s_col
 {
 	int			wall_start;
 	int			wall_end;
+	int			wall_size;
 	t_img		t;
 	t_point		tcord;
 }				t_col;
