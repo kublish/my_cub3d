@@ -20,8 +20,8 @@ void	init_col(t_data *d, t_col *c, double perp_dist)
 	double	wallx;
 	void	*re_val;	
 	
-	c->wall_start = (int)((d->res.y - 2 * d->res.y / perp_dist / 3) / 2);
-	c->wall_end = (int)((d->res.y + 2 * d->res.y / perp_dist / 3) / 2);
+	c->wall_start = (int)((d->res.y - d->res.y / perp_dist / 2) / 2);
+	c->wall_end = (int)((d->res.y +  d->res.y / perp_dist / 2) / 2);
 	c->wall_size = c->wall_end - c->wall_start;
 	if (d->ray.is_NS)
 		c->tex = (d->ray.hit.y + .5 > d->cam.player.y ?
