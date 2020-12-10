@@ -84,7 +84,7 @@ int main(void)
 	ft_bzero(data, sizeof(t_data));
 	data->mlx_ptr = mlx_init();
 	mlx_do_key_autorepeaton(data->mlx_ptr);		
-	if ((ecode = input("maps/sqr.cub", data)))
+	if ((ecode = input("maps/simple.cub", data)))
 		my_error(ecode, data);
 	else
 	{
