@@ -6,7 +6,7 @@
 /*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 11:57:52 by zkubli            #+#    #+#             */
-/*   Updated: 2020/10/30 08:40:31 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/03/11 09:18:39 by zkubli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,30 @@ typedef	struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_vector
+{
+	void			*data;
+	size_t			elem_size;
+	size_t			count;
+	size_t			capacity;
+}					t_vector;
+
+typedef struct		s_pq
+{
+	size_t			count;
+	struct s_pq		*left;
+	struct s_pq		*right;
+	struct s_pq		*parent;
+	void			*content;
+	size_t			content_size;
+}					t_pq;
+
+/*
+** printf
+*/
+
+int					ft_printf(char *input, ...);
 
 /*
 **	Part 1
@@ -90,26 +114,53 @@ char				*ft_strjoin(char const *s1, char const *s2);
 */
 
 t_list				*ft_lstnew(void const *src, size_t sze);
-void				ft_lstadd(t_list **alst, t_list *new);
+void				ft_lstadd(t_list **alst, t_list *to_add);
 void				ft_lstdelone(t_list **alst, void(*del)(void *, size_t));
 void				ft_lstiter(t_list *lst, void(*f)(t_list *cnt));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *cnt));
 void				ft_lstdel(t_list**alst, void(*del)(void*, size_t));
-void				ft_lstappend(t_list **alst, t_list *new);
-void				ft_lstfree(t_list **alst);
 
 /*
 ** My Functions
 */
 
 long				ft_strtol(const char *str, char **endptr, int base);
+char				*ft_strndup(const char *str, size_t n);
 int					ft_isspace(int c);
 int					ft_pow(int base, int power);
 int					ft_gcf(int a, int b);
 int					ft_lcm(int a, int b);
 int					ft_isprime(int a);
+int					ft_abs(int a);
 int					ft_lstcontain(t_list *lst, void *cntnt, int cntnt_size);
-void				*ft_lstpop(t_list **root);
-void				ft_strappend(char **s1, char *s2);
+void				ft_lstappend(t_list **lista, t_list *listb);
+void				ft_lstprepend(t_list **lista, t_list *listb);
+void				ft_lstsort(t_list **root, int (*f) (void *a, void *b));
+void				*ft_lstfrontpop(t_list **lista);
+int					ft_memswap(void *a, void *b, size_t bytes);
+void				ft_remalloc(void **dst, size_t new_size);
+int					ft_digitcount(int n);
+char				*ft_strpolyjoin(int n, ...);
+
+/*
+** Vector
+*/
+
+t_vector			*ft_vnew(size_t elem_size);
+void				ft_vdoublecap(t_vector *vect);
+void				*ft_vget(t_vector *vect, size_t index);
+size_t				ft_vadd(t_vector *vect, void *elem);
+void				ft_vdel(t_vector *vect, size_t index);
+void				ft_vinsert(t_vector *vect, void *elem, size_t index);
+void				ft_vswap(t_vector *vect, size_t a, size_t b);
+void				ft_vsort(t_vector *vect, int (*f)(void *, void *));
+
+/*
+** Priority Queue
+*/
+
+t_pq				*ft_pqnew(const void *elem, size_t elem_size);
+void				ft_pqpush(t_pq **r, int (*f)(void *a, void *b), t_pq *a);
+void				*ft_pqpop(t_pq **root, int (*f)(void *a, void *b));
 
 #endif
