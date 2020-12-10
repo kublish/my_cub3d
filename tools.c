@@ -21,8 +21,8 @@ int     is_player(const char a)
 
 void    ray_init(t_data *d, double ratio)
 {
-	d->ray.dir.x = d->cam.dir.y * ratio + d->cam.dir.x; 
-	d->ray.dir.y = -d->cam.dir.x * ratio + d->cam.dir.y;
+	d->ray.dir.x = -d->cam.dir.y * ratio + d->cam.dir.x; 
+	d->ray.dir.y = d->cam.dir.x * ratio + d->cam.dir.y;
     d->ray.hit.x = (int)d->cam.player.x;
     d->ray.hit.y = (int)d->cam.player.y;
     d->ray.inc.x = (d->ray.dir.x < 0 ? -1 : 1);
@@ -57,7 +57,7 @@ double	ray_cast(t_data *d)
 	int		side;
 
 	hit_found = 0;
-	while (!hit_found)
+	while (hit_found != 1)
 	{
 		if (d->ray.sideDist.x && d->ray.sideDist.x < d->ray.sideDist.y)
 		{
@@ -71,12 +71,8 @@ double	ray_cast(t_data *d)
 			d->ray.hit.y += d->ray.inc.y;
 			d->ray.is_NS = 1;
 		}
-		if ((hit_found = get_map_point(d, &d->ray.hit)) == '1')
-		{
-		//	fprintf(stderr, "hit found: %4i, %4i:\t%d\n",
-		//			d->ray.hit.x, d->ray.hit.y, hit_found);
-			hit_found = 1;
-		}
+		if ((hit_found = get_map_point(d, &d->ray.hit) - 48) == -49)
+			return (-1);
 	}
 	if (d->ray.is_NS)
 		return (fabs((d->ray.hit.y - d->cam.player.y + (d->ray.inc.y == -1) * 1) / d->ray.dir.y)); 

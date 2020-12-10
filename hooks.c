@@ -17,9 +17,9 @@ int my_key_hook(int keycode, void *param)
 {
 	//fprintf(stderr, "keycode: %d\n", keycode);
 	if (keycode == 65361)
-		rotate_cam(TURN_SPEED, param);
-	else if (keycode == 65363)
 		rotate_cam(-TURN_SPEED, param);
+	else if (keycode == 65363)
+		rotate_cam(TURN_SPEED, param);
 	else if (keycode == 119)
 		move_cam(0, param);
 	else if (keycode == 100)

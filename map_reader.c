@@ -88,11 +88,11 @@ int		read_map(char *line, int fd, t_data *data)
 
 	root = ft_lstnew(&line, sizeof(char *));
 	data->map.tablelen = 1;
-	data->map.rowlen = ft_strlen(line);
+	data->map.rowlen = ft_strlen(line) + 1;
 	while (gnl(fd, &line) != 1)
 	{
 		ft_lstadd(&root, ft_lstnew(&line, sizeof(char *)));
-		if ((strlen = ft_strlen(line)) > data->map.rowlen)
+		if ((strlen = ft_strlen(line) + 1) > data->map.rowlen)
 			data->map.rowlen = strlen;
 		data->map.tablelen++;
 	}

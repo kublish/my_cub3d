@@ -24,10 +24,10 @@ void	init_col(t_data *d, t_col *c, double perp_dist)
 	c->wall_end = (int)((d->res.y +  d->res.y / perp_dist / 2) / 2);
 	c->wall_size = c->wall_end - c->wall_start;
 	if (d->ray.is_NS)
-		c->tex = (d->ray.hit.y + .5 > d->cam.player.y ?
+		c->tex = (d->ray.hit.y + .5 < d->cam.player.y ?
 				&d->no_tex : &d->so_tex);
 	else
-		c->tex = (d->ray.hit.x + .5 > d->cam.player.x ?
+		c->tex = (d->ray.hit.x + .5 < d->cam.player.x ?
 				&d->we_tex : &d->ea_tex);
 	wallx = (d->ray.is_NS ? d->cam.player.x + d->ray.dir.x * perp_dist :
 		       d->cam.player.y + d->ray.dir.y * perp_dist);	
@@ -42,6 +42,8 @@ void	render_col(t_data *data, int x, double perp_dist)
 	int		y;
 	int		color;
 
+	if (perp_dist < 0)
+		return ;
 	init_col(data, &c, perp_dist);
 	y = 0;
 	while (y < data->res.y)
@@ -51,21 +53,11 @@ void	render_col(t_data *data, int x, double perp_dist)
 			else if (y > c.wall_end)
 				color = 0x00333333; //floor color
 			else
-			{/*
-				fprintf(stderr, "c.tex->height:\t%4d\n", c.tex->height);
-				fprintf(stderr, "y:            \t%4d\n", y);
-				fprintf(stderr, "c.wall_start: \t%4d\n", c.wall_start);
-				fprintf(stderr, "c.wall_end:   \t%4d\n", c.wall_end);
-				fprintf(stderr, "c.wall_end:   \t%4d\n", c.wall_size);
-				fprintf(stderr, "doubc.wall_end\t%4lf\n", ((double)(c.wall_size)));
-			*/
-				//c.tcord.y = (int)((double)(c.tex->height) * (y - c.wall_start) / ((double)(c.wall_size)));
+			{
 				c.tcord.y = (c.tex->height * (y - c.wall_start) / ((double)(c.wall_size)));
-			//	fprintf(stderr, "c.tcord.y:%d\n", c.tcord.y);
 				color = ((int *)(c.tex->adr))[(c.tcord.x + c.tcord.y
 						* c.tex->width)];
 			}
-			//fprintf(stderr, "writing to screen x: %4d, y:%4d\n", x, y);
 			((int *)(data->screen.adr))[x + y++ * data->res.x] = color;
 	}  
 }

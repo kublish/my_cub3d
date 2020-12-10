@@ -35,9 +35,9 @@ void	move_cam(int direction, t_data *d)
 
 	to_move.x = d->cam.dir.x * MOVE_SPEED;
 	to_move.y = d->cam.dir.y * MOVE_SPEED;
-	if (direction == 1 || direction == 2)
+	if (direction == 3 || direction == 2)
 		to_move.x *= -1;
-	if (direction == 2 || direction == 3)
+	if (direction == 2 || direction == 1)
 		to_move.y *= -1;
 	if (direction == 1 || direction == 3)
 	{
