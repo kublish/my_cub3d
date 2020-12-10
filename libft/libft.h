@@ -140,7 +140,8 @@ void				*ft_lstfrontpop(t_list **lista);
 int					ft_memswap(void *a, void *b, size_t bytes);
 void				ft_remalloc(void **dst, size_t new_size);
 int					ft_digitcount(int n);
-char				*ft_strpolyjoin(int n, ...);
+void				*ft_lstpop(t_list **root);
+void				ft_strappend(char **s1, char *s2);
 
 /*
 ** Vector
