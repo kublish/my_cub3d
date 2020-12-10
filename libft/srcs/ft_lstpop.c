@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnequ.c                                       :+:      :+:    :+:   */
+/*   ft_lstpop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 14:26:38 by zkubli            #+#    #+#             */
-/*   Updated: 2019/09/24 15:33:55 by zkubli           ###   ########.fr       */
+/*   Created: 2020/10/29 19:19:40 by zacharyku         #+#    #+#             */
+/*   Updated: 2020/10/30 08:42:19 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "../libft.h"
 
-int	ft_strnequ(char const *s1, char const *s2, size_t n)
+void	*ft_lstpop(t_list **root)
 {
-	if (s1 && s2)
-		return (ft_strncmp(s1, s2, n) == 0);
-	return (s1 == s2);
+	void	*content;
+	t_list	*next;
+
+	if (root && *root)
+	{
+		content = (*root)->content;
+		next = (*root)->next;
+		free(*root);
+		*root = next;
+		return (content);
+	}
+	return (0);
 }

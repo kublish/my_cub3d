@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_strappend.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: zacharykubli <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/04 14:10:56 by zkubli            #+#    #+#             */
-/*   Updated: 2020/02/04 14:11:44 by zkubli           ###   ########.fr       */
+/*   Created: 2020/08/14 10:22:11 by zacharyku         #+#    #+#             */
+/*   Updated: 2020/08/17 16:07:21 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_abs(int a)
+#include <stdlib.h>
+#include "../libft.h"
+
+void	ft_strappend(char **s1, char *s2)
 {
-	if (a < 0)
-		return (a * -1);
-	return (a);
+	char *old_str;
+	
+	old_str = *s1;
+	*s1 = ft_strjoin(*s1, s2);
+	free(old_str);
 }
