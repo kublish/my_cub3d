@@ -6,7 +6,7 @@
 /*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 18:43:17 by zkubli            #+#    #+#             */
-/*   Updated: 2019/12/17 02:49:04 by zkubli           ###   ########.fr       */
+/*   Updated: 2020/12/09 21:26:17 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 size_t	ft_vadd(t_vector *vect, void *elem)
 {
+	vect->count++;
 	if (vect->count >= vect->capacity)
 		ft_vdoublecap(vect);
 	ft_memmove(vect->data + (vect->count++ * vect->elem_size),

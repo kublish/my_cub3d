@@ -6,7 +6,7 @@
 /*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 02:02:04 by zkubli            #+#    #+#             */
-/*   Updated: 2020/12/04 19:30:09 by zacharyku        ###   ########.fr       */
+/*   Updated: 2020/12/11 13:49:44 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,12 @@ typedef struct	s_col
 	t_point		tcord;
 }				t_col;
 
+typedef struct	s_sprite
+{
+	double		dist;
+	t_point		pos;
+}				t_sprite;
+
 typedef struct	s_data
 {
 	void 		*mlx_ptr;
@@ -94,6 +100,7 @@ typedef struct	s_data
 	char		*error_data;
 	t_map		map;
 	t_img		screen;
+	t_vector	*sprites;
 }				t_data;
 
 void			launch(t_data *data);
@@ -133,4 +140,8 @@ int				read_map(char *line, int fd, t_data *data);
 int				is_player(const char a);
 void			ray_init(t_data *d, double ratio);
 double			ray_cast(t_data *d);
+
+//sprite.c
+
+int				sprite_cmp(void *a, void *b);
 #endif

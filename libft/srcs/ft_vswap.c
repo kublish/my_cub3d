@@ -6,7 +6,7 @@
 /*   By: zkubli <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 13:00:19 by zkubli            #+#    #+#             */
-/*   Updated: 2019/12/17 02:53:05 by zkubli           ###   ########.fr       */
+/*   Updated: 2020/12/10 11:20:33 by zacharyku        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_vswap(t_vector *vect, size_t a, size_t b)
 {
 	void *temp;
 
-	if (!(vect))
+	if (!(vect) || a == b)
 		return ;
 	a *= vect->elem_size;
 	b *= vect->elem_size;
