@@ -16,7 +16,6 @@ void	ft_vinsert(t_vector *vect, void *elem, size_t index)
 {
 	if (!(vect))
 		return ;
-	vect->count++;
 	if (vect->count >= vect->capacity)
 		ft_vdoublecap(vect);
 	ft_memmove(vect->data + (index + 1) * vect->elem_size,

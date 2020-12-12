@@ -60,6 +60,7 @@ void	init_screen(t_data *d)
 void	launch(t_data *d)
 {
 	init_camera(d);	
+	find_sprites(d);
 	d->win = mlx_new_window(d->mlx_ptr, d->res.x, d->res.y, "zkubli cub3d");
 	mlx_key_hook(d->win, &my_key_hook, (void *)d);
 	mlx_hook(d->win, KeyPress, KeyPressMask, &my_press_hook, (void *)d);

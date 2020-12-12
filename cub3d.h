@@ -19,6 +19,7 @@
 # define RED 		0x00FF0000
 # define GREEN		0x0000FF00
 # define BLUE		0x000000FF
+# include "libft/libft.h"
 
 typedef struct	s_point
 {
@@ -143,5 +144,7 @@ double			ray_cast(t_data *d);
 
 //sprite.c
 
+void				draw_sprites(t_data *d);
+void				order_sprites(t_data *d);
 int				sprite_cmp(void *a, void *b);
 #endif

@@ -14,7 +14,6 @@
 
 size_t	ft_vadd(t_vector *vect, void *elem)
 {
-	vect->count++;
 	if (vect->count >= vect->capacity)
 		ft_vdoublecap(vect);
 	ft_memmove(vect->data + (vect->count++ * vect->elem_size),

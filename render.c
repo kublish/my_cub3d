@@ -75,6 +75,7 @@ void	render_screen(t_data *d)
 		render_col(d, i, perp_dist);
 		i++;
     }
+	draw_sprites(d);
 	mlx_put_image_to_window(d->mlx_ptr, d->win, d->screen.ptr, 0, 0);
 	//fprintf(stderr, "render end.\n");
 }
