@@ -5,10 +5,9 @@ WE ./textures/wood.xpm
 EA ./textures/grey.xpm
 
 S ./textures/chalice.xpm
-C 40,40,42
-F 20,20,30
+F 224,172,105
+C 205,249,255
 
-111
-1011
-1N021
-1111
+111111111
+1222E2221
+111111111

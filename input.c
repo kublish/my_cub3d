@@ -46,9 +46,9 @@ int	get_element(char *line, t_data *data)
 	else if (line[i] == 'S')
 		return (get_texture(line + i + 2, data, &(data->spr_tex)));
 	else if (line[i] == 'F')
-		return (5 * !!(get_color(line + i + 1, &(data->floor_color)))); 
+		return (get_color(line + i + 1, &(data->floor_color), 0)); 
 	else if (line[i] == 'C')
-		return (6 * !!(get_color(line + i + 1, &(data->ceil_color)))); 
+		return (get_color(line + i + 1, &(data->ceil_color), 1)); 
 	else if (line[i] == 'N' || line[i] == 'S' || line[i] == 'E' || line[i]
 			== 'W' || line[i] == ' ' || line[i] == '1' || line[i] == '0')
 		return (-1);
@@ -74,13 +74,27 @@ int	validate(t_data *d)
 			));
 }
 
-int	input(char *input, t_data *data)
+char	*get_input(int argc, char *argv[], t_data *data)
+{
+	if (argc >= 2)
+	{
+		if (!(argc >= 3 && ft_strcmp(argv[2], "--save") == 0))	
+				data->ss = 1;
+		return (argv[1]);
+	}
+	return (NULL);
+}
+
+int	input(int argc, char *argv[], t_data *data)
 {
 	int fd;
 	int ecode;
 	char *line;
+	char *input;
 
-	if ((fd = open(input, O_RDONLY)) == -1)
+	if(!(input = get_input(argc, argv, data)))
+		return (15);
+	if ((fd = open(input, O_RDONLY, 666)) == -1)
 		return (8);
 	while (gnl(fd, &line) != 1)
 	{

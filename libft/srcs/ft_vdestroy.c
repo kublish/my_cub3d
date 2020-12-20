@@ -20,6 +20,7 @@
 
 void	ft_vdestroy(t_vector *kill_me)
 {
-	free(kill_me->data);
+	if (kill_me)
+		free(kill_me->data);
 	free(kill_me);
 }

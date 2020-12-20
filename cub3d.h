@@ -16,6 +16,7 @@
 # define TURN_SPEED .04908738521
 # include <mlx.h>
 # define READ_BUF	64
+# define SS_BUF		64
 # define RED 		0x00FF0000
 # define GREEN		0x0000FF00
 # define BLUE		0x000000FF
@@ -102,19 +103,21 @@ typedef struct	s_data
 	t_map		map;
 	t_img		screen;
 	t_vector	*sprites;
+	t_vector	*depth_map;
+	short int	ss;
 }				t_data;
 
 void			launch(t_data *data);
 void			render_screen(t_data *data);
 
-int input(char *input, t_data *data);
+int input(int argc, char *argv[], t_data *data);
 
 //getters.c
 
 int				gnl(int fd, char **line);
 int				get_resolution(char *line, t_point *to_fill);
 int				get_texture(char * line, t_data *data, t_img *tex);
-int				get_color(char *line, int *color);
+int				get_color(char *line, int *color, int is_ciel);
 
 //movement.c
 
@@ -141,10 +144,14 @@ int				read_map(char *line, int fd, t_data *data);
 int				is_player(const char a);
 void			ray_init(t_data *d, double ratio);
 double			ray_cast(t_data *d);
+void			destroy_sprites(t_data *a);
 
 //sprite.c
 
+
+void				find_sprites(t_data *d);
 void				draw_sprites(t_data *d);
 void				order_sprites(t_data *d);
 int				sprite_cmp(void *a, void *b);
+void				screenshot(t_data *d);
 #endif

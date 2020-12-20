@@ -48,7 +48,6 @@ void	init_screen(t_data *d)
 {
 	void *tmp;
 
-	
 	//d->screen.ptr = mlx_new_image(d->mlx_ptr, d->res.x, d->res.y);
 	d->screen.ptr = mlx_new_image(d->mlx_ptr, d->res.x, d->res.y);
 	d->screen.adr = mlx_get_data_addr(d->screen.ptr, &d->screen.bpp,
@@ -63,10 +62,10 @@ void	launch(t_data *d)
 	find_sprites(d);
 	d->win = mlx_new_window(d->mlx_ptr, d->res.x, d->res.y, "zkubli cub3d");
 	mlx_key_hook(d->win, &my_key_hook, (void *)d);
-	mlx_hook(d->win, KeyPress, KeyPressMask, &my_press_hook, (void *)d);
 	mlx_mouse_hook(d->win, &my_mouse_hook, (void *)d);
 	mlx_expose_hook(d->win, &my_expose_hook, (void *)d);
 	mlx_loop_hook(d->win, &my_loop_hook, (void *)d);
+	d->depth_map = ft_vnew(sizeof(double));
 	
 	init_screen(d);
 	

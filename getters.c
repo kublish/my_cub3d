@@ -51,6 +51,8 @@ int get_resolution(char *line, t_point *to_fill)
 {
 	int		i;
 
+	if (to_fill->x != 0 || to_fill->y != 0)
+		return (17);
 	i = 0;
 	while (ft_isspace(line[i]))
 		i++;
@@ -68,36 +70,41 @@ int get_resolution(char *line, t_point *to_fill)
 		i++;
 	while (ft_isspace(line[i]))
 		i++;
-	return (3 * (line[i] != '\0'));
+	if (line[i] != '\0')
+		return (3);
+	return (16 * !!(to_fill->x <= 0 || to_fill->y <= 0));
 }
 
 int	get_texture(char *line, t_data *data, t_img *img)
 {
+	if (img->ptr)
+	{
+		data->error_data = ft_strdup(line);
+		return (18);
+	}
 	while (ft_isspace(*line))
 		line++;
 	if ((img->ptr = mlx_xpm_file_to_image
 			(data->mlx_ptr, line, &(img->width), &(img->height))))
 	{
 		img->adr = mlx_get_data_addr(img->ptr, &img->bpp, &img->sl, &img->endian);
+		fprintf(stderr, "img->adr:%p\n", img->adr);
+		if (!(img->adr))
+			fprintf(stderr, "what the heck!\n");
 		return (4 * (img->width <= 0 || img->height <= 0));
 	}
-/*
-**	if ((img->ptr = mlx_png_file_to_image
-**			(data->mlx_ptr, line, &(img->width), &(img->height))))
-**	{
-**		img->adr = mlx_get_data_addr(img->ptr, img->bpp, img->sl, img->endian);
-**		return (4 * (img->width <= 0 || img->height <= 0));
-**	{
-**	data->error_data = ft_strdup(line);
-*/
+	data->error_data = ft_strdup(line);
+
 	return (4);
 }
 
-int get_color(char *line, int *color)
+int get_color(char *line, int *color, int is_ceil)
 {
 	int i;
 	int tmpcolor;
 
+	if (*color != 0)
+		return (19 + is_ceil);
 	i = 0;
 	while (ft_isspace(line[i]))
 		i++;
@@ -105,19 +112,17 @@ int get_color(char *line, int *color)
 	while (ft_isdigit(line[i]))
 		i++;
 	if (*color & ~0xFF || line[i++] != ',')
-		return (1);
+		return (5 + is_ceil);
 	*color <<= 16;
 	tmpcolor = ft_atoi(line + i);
 	while (ft_isdigit(line[i]))
 		i++;
 	if (tmpcolor & ~0xFF || line[i++] != ',')
-		return (1);
+		return (5 + is_ceil);
 	*color += tmpcolor << 8;
 	tmpcolor = ft_atoi(line + i);
 	while (ft_isdigit(line[i]))
 		i++;
-	if (tmpcolor & ~0xFF || (line[i] != ' ' && line[i] != '\0'))
-		return (1);
 	color += tmpcolor;
-	return (0);
+	return (!!(tmpcolor & ~0xFF || (line[i] != ' ' && line[i] != '\0')) * (5 + is_ceil));
 }

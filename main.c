@@ -20,7 +20,7 @@ static char error_codes[20][40] =
 {
 	"Unkown Error",
 	"System Error: ",
-	"Invalid Resolution",
+	"Resolution poorly formated",
 	"Could not load texture: ",
 	"Floor color invalid",
 	"Ceiling color invalid",
@@ -34,7 +34,16 @@ static char error_codes[20][40] =
 	"No starting point on map",
 	"More than one starting point in map",
 	"Map is not enclosed",
-	"Map not found"
+	"Map not found",
+	"Arguments not provided",
+	"Resolution has bad values",
+	"Duplicate resolution",
+	"Duplicate texture",
+	"Duplicate floor color",
+	"Duplicate ceiling color"
+	/*
+	**	20
+	*/
 };
 
 void my_error(int ecode, t_data *data)
@@ -48,7 +57,7 @@ void my_error(int ecode, t_data *data)
 	ft_putstr("\n");
 }
 
-void clear_data(t_data *d)
+void clear_data(t_data *d, int del_win)
 {
 	if (d->no_tex.ptr)
 		mlx_destroy_image(d->mlx_ptr, d->no_tex.ptr);
@@ -60,8 +69,13 @@ void clear_data(t_data *d)
 		mlx_destroy_image(d->mlx_ptr, d->we_tex.ptr);
 	if (d->spr_tex.ptr)
 		mlx_destroy_image(d->mlx_ptr, d->spr_tex.ptr);
-	if (d->mlx_ptr && d->win)
+	if (d->mlx_ptr && d->win && del_win)
 		mlx_destroy_window(d->mlx_ptr, d->win);
+	if (d->sprites)
+		destroy_sprites(d);
+	if (d->screen.ptr)
+		mlx_destroy_image(d->mlx_ptr, d->screen.ptr);
+	ft_vdestroy(d->depth_map);
 	free(d->error_data);
 	free(d->map.table);
 	mlx_destroy_display(d->mlx_ptr);
@@ -71,25 +85,24 @@ void clear_data(t_data *d)
 
 #include <stdio.h>
 
-int main(void)
+int main(int argc, char *argv[])
 {
 	t_data	*data;
 	int		ecode;
-	int		a, b;
+	int		del_win;
 
-	fprintf(stderr, "sizeof char:%lu\n", sizeof(char));
-	fprintf(stderr, "sizeof int:%lu\n", sizeof(int));
-	fprintf(stderr, "sizeof short:%lu\n", sizeof(short));
+	del_win = 1;
 	data = malloc(sizeof(t_data));
 	ft_bzero(data, sizeof(t_data));
 	data->mlx_ptr = mlx_init();
 	mlx_do_key_autorepeaton(data->mlx_ptr);		
-	if ((ecode = input("maps/simple.cub", data)))
+	if ((ecode = input(argc, argv, data)))
 		my_error(ecode, data);
 	else
 	{
 		launch(data);	
+		del_win = 0;
 	}
-	clear_data(data);
+	clear_data(data, del_win);
 	free(data);
 }

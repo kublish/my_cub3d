@@ -155,6 +155,7 @@ void				ft_vdel(t_vector *vect, size_t index);
 void				ft_vinsert(t_vector *vect, void *elem, size_t index);
 void				ft_vswap(t_vector *vect, size_t a, size_t b);
 void				ft_vsort(t_vector *vect, int (*f)(void *, void *));
+void				ft_vdestroy(t_vector *vect);
 
 /*
 ** Priority Queue

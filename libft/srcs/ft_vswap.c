@@ -13,6 +13,11 @@
 #include "../libft.h"
 #include <stdlib.h>
 
+/*
+** consider switching this to a byte by byte to avoid malloc call
+** and speed up swap
+*/
+
 void	ft_vswap(t_vector *vect, size_t a, size_t b)
 {
 	void *temp;

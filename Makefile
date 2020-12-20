@@ -12,7 +12,7 @@
 
 LIBS = libft/libft.a -ldl -lm -lmlx -lXext -lX11
 FLAGS = -fsanitize=address #-Wall -Wextra -Werror
-OBJS = main.o launch.o render.o input.o getters.o hooks.o map_reader.o tools.o movement.o sprite.o
+OBJS = main.o launch.o render.o input.o getters.o hooks.o map_reader.o tools.o movement.o sprite.o raycast.o bmp.o
 NAME = cub3d
 
 pull:

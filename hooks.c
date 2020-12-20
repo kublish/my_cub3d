@@ -32,12 +32,6 @@ int my_key_hook(int keycode, void *param)
 	return (0);
 }
 
-int	my_press_hook(int keycode, void *param)
-{
-	//fprintf(stderr, "test:%d\n", keycode);
-	//fprintf(stderr, "param:%p", param);
-}
-
 int my_mouse_hook(int button, int x, int y, void *param)
 {
 	fprintf(stderr, "button: %d at %6d, %5d\n", button, x, y);
@@ -46,7 +40,10 @@ int my_mouse_hook(int button, int x, int y, void *param)
 
 int my_expose_hook(void *param)
 {
-	fprintf(stderr, "YOU'VE BEEN EXPOSED");
+	t_data	*d;
+
+	d = (t_data *)param;
+	mlx_put_image_to_window(d->mlx_ptr, d->win, d->screen.ptr, 0, 0);
 	return (0);
 }
 

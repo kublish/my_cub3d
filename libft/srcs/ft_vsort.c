@@ -24,9 +24,9 @@ void	ft_vsort(t_vector *vect, int (*f)(void *, void *))
 		lowest = start;
 		compare = start;
 		while (++compare < vect->count)
-			if (f(ft_vget(vect, lowest), ft_vget(vect, start)) < 0)
+			if (f(ft_vget(vect, lowest), ft_vget(vect, compare)) < 0)
 				lowest = compare;
-		ft_vswap(vect, lowest, compare);
+		ft_vswap(vect, lowest, start);
 		start++;
 	}
 }
