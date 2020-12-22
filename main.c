@@ -16,7 +16,7 @@
 #include "libft/libft.h"
 #include "cub3d.h"
 
-static char error_codes[20][40] =
+static char error_codes[21][40] =
 {
 	"Unkown Error",
 	"System Error: ",
@@ -35,15 +35,16 @@ static char error_codes[20][40] =
 	"More than one starting point in map",
 	"Map is not enclosed",
 	"Map not found",
-	"Arguments not provided",
+	"File not provided",
 	"Resolution has bad values",
 	"Duplicate resolution",
 	"Duplicate texture",
 	"Duplicate floor color",
-	"Duplicate ceiling color"
+	"Duplicate ceiling color",
 	/*
 	**	20
 	*/
+	"File name does not end with \".cub\""
 };
 
 void my_error(int ecode, t_data *data)

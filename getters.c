@@ -94,7 +94,6 @@ int	get_texture(char *line, t_data *data, t_img *img)
 		return (4 * (img->width <= 0 || img->height <= 0));
 	}
 	data->error_data = ft_strdup(line);
-
 	return (4);
 }
 

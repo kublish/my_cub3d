@@ -74,15 +74,22 @@ int	validate(t_data *d)
 			));
 }
 
-char	*get_input(int argc, char *argv[], t_data *data)
+int	get_input(int argc, char *v[], t_data *data, char **re_val)
 {
+	int len;
+
 	if (argc >= 2)
 	{
-		if (!(argc >= 3 && ft_strcmp(argv[2], "--save") == 0))	
+		if (((len = ft_strlen(v[1])) < 4) || v[1][len - 1] != 'b' ||
+				v[1][len - 2] != 'u' || v[1][len - 3] != 'c' ||
+				v[1][len - 4] != '.')
+			return (21);
+		if (!(argc >= 3 && ft_strcmp(v[2], "--save") == 0))	
 				data->ss = 1;
-		return (argv[1]);
+		*re_val = v[1];
+		return (0);
 	}
-	return (NULL);
+	return (15);
 }
 
 int	input(int argc, char *argv[], t_data *data)
@@ -92,8 +99,8 @@ int	input(int argc, char *argv[], t_data *data)
 	char *line;
 	char *input;
 
-	if(!(input = get_input(argc, argv, data)))
-		return (15);
+	if((ecode = get_input(argc, argv, data, &input)))
+		return (ecode);
 	if ((fd = open(input, O_RDONLY, 666)) == -1)
 		return (8);
 	while (gnl(fd, &line) != 1)
